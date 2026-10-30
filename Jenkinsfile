@@ -16,12 +16,14 @@ pipeline {
         }
 
         stage('Python Validation') {
-            steps {
-                echo 'Checking Python application'
-                bat 'python --version'
-                bat 'python -m compileall -q app.py engine'
-            }
-        }
+    steps {
+        echo 'Checking Python application'
+
+        bat '"C:\\Users\\joshi\\AppData\\Local\\Programs\\Python\\Python310\\python.exe" --version'
+
+        bat '"C:\\Users\\joshi\\AppData\\Local\\Programs\\Python\\Python310\\python.exe" -m compileall -q app.py engine'
+    }
+}
 
         stage('Build Docker Image') {
             steps {
