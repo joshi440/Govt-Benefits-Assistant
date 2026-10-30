@@ -21,7 +21,7 @@ spec:
       containers:
         - name: govt-benefits-container
 
-          image: joshithachilukuri/govt-benefits-assistant:IMAGE_TAG
+          image: YOUR_DOCKERHUB_USERNAME/govt-benefits-assistant:IMAGE_TAG
 
           imagePullPolicy: Always
 
