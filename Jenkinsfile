@@ -64,7 +64,11 @@ pipeline {
                         passwordVariable: 'DOCKER_TOKEN'
                     )
                 ]) {
-                    bat 'powershell -NoProfile -Command "(Get-Content deployment.yaml -Raw).Replace(''YOUR_DOCKERHUB_USERNAME'', $env:DOCKER_USER).Replace(''IMAGE_TAG'', $env:BUILD_NUMBER) | Set-Content deployment-ci.yaml"'
+                   
+bat '''
+powershell -NoProfile -Command "(Get-Content deployment.yaml -Raw).Replace('YOUR_DOCKERHUB_USERNAME', $env:DOCKER_USER).Replace('IMAGE_TAG', $env:BUILD_NUMBER) | Set-Content deployment-ci.yaml"
+'''
+
 
                     bat 'kubectl apply -f deployment-ci.yaml'
                     bat 'kubectl apply -f service.yaml'
